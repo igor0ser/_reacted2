@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "superReact",
+    "style": "css",
+    "postcss": false
+  }
+}
