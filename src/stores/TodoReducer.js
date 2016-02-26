@@ -1,9 +1,8 @@
-import {createStore} from 'redux';
 import ls from 'stores/LocalStorage';
 
-var def = ls.get();
+var def = ls.getTodos();
 
-const reducer = (state=def, action) => {
+const todos = (state=def, action) => {
 	let res;
 
 	switch (action.type) {
@@ -14,13 +13,13 @@ const reducer = (state=def, action) => {
 				completed: false
 			}
 			res = state.concat(newTask);
-			ls.set(res);
+			ls.setTodos(res);
 			return res;
 		case 'DEL_TASK':
 			res = state.filter(
 				item => item.id !== action.payload
 			);
-			ls.set(res);
+			ls.setTodos(res);
 			return res;
 		case 'TOGGLE_TASK':
 			res = state.map(item => {
@@ -30,14 +29,12 @@ const reducer = (state=def, action) => {
 				return item;
 			}
 			);
-			ls.set(res);
+			ls.setTodos(res);
 			return res;
 		default:
 			return state;
 	}
 };
 
-var store = createStore(reducer);
-
-export default store;
+export default todos;
 

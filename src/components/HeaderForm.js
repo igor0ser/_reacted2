@@ -1,6 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/lib/text-field';
-import store from 'stores/TodoStore';
+import store from 'stores/Store';
 import addTask from 'actions/addTask.js';
 
 /*var style = {

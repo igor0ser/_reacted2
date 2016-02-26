@@ -1,6 +1,6 @@
 import React from 'react';
 import Task from 'components/Task.js';
-import store from 'stores/TodoStore';
+import store from 'stores/Store';
 
 
 const style = {
@@ -12,7 +12,7 @@ const style = {
 
 const TaskList = () => {
 
-	var taskNodes = store.getState().map(item => {
+	var taskNodes = store.getState().todos.map(item => {
 		return (
 			<Task
 				key={item.id}

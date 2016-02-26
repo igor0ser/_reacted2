@@ -1,7 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/lib/paper';
 import FlatButton from 'material-ui/lib/flat-button';
-import store from 'stores/TodoStore';
+import store from 'stores/Store';
 import delTask from 'actions/delTask.js';
 import toggleTask from 'actions/toggleTask.js';
 

@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HeaderContainer from 'components/HeaderContainer.js'
 import TaskList from 'components/TaskList.js'
-import store from 'stores/TodoStore';
+import store from 'stores/Store';
 
 
 
