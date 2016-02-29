@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HeaderContainer from 'components/HeaderContainer.js'
 import TaskList from 'components/TaskList.js'
+import ChangeMessage from 'components/ChangeMessage.js'
 import store from 'stores/Store';
 
 
@@ -14,8 +15,9 @@ import store from 'stores/Store';
 const Container = () => {
 	return (
 		<div>
-		<HeaderContainer></HeaderContainer>
-		<TaskList></TaskList>
+			<HeaderContainer />
+			<TaskList />
+			<ChangeMessage />
 		</div>
 	);
 }

@@ -15,9 +15,21 @@ const todos = (state=def, action) => {
 			res = state.concat(newTask);
 			ls.setTodos(res);
 			return res;
+
 		case 'DEL_TASK':
 			res = state.filter(
 				item => item.id !== action.payload
+			);
+			ls.setTodos(res);
+			return res;
+
+		case 'EDIT_TASK':
+			res = state.map(item => {
+				if (item.id === action.payload.id) {
+					item.text = action.payload.text;
+				}
+				return item;
+			}
 			);
 			ls.setTodos(res);
 			return res;
@@ -29,6 +41,14 @@ const todos = (state=def, action) => {
 				return item;
 			}
 			);
+			ls.setTodos(res);
+			return res;
+
+		case 'TOGGLE_ALL_TASKS':
+			res = state.map(item => {
+				item.completed = action.payload;
+				return item;
+			});
 			ls.setTodos(res);
 			return res;
 		default:

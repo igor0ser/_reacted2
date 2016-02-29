@@ -1,5 +1,4 @@
 import {combineReducers, createStore } from 'redux';
-import ls from 'stores/LocalStorage';
 import todos from 'stores/TodoReducer';
 import filter from 'stores/FilterReducer';
 

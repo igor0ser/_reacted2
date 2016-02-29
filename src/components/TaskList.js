@@ -6,6 +6,7 @@ import store from 'stores/Store';
 const style = {
 	display: 'flex',
 	flexWrap: 'wrap',
+	flexDirection: 'row',
 	justifyContent: 'center'
 };
 
@@ -13,14 +14,12 @@ const style = {
 const TaskList = () => {
 
 	var tasks = store.getState().todos;
-
+	
 	if (store.getState().filter !== 'ALL'){
-		console.log(store.getState().filter === 'COMPLETED');
 		var flag = store.getState().filter === 'COMPLETED';
 		tasks = tasks.filter(item => {
-			console.log('com = ', item.completed)
 			return item.completed === flag;
-		})
+		});
 	}
 
 	var taskNodes = tasks.map(item => {
@@ -33,15 +32,7 @@ const TaskList = () => {
 				{item.text}
 			</Task>
 		);
-	});
-	console.log(store.getState().filter);
-	console.log('taskNodes1=', taskNodes);
-
-
-	console.log('taskNodes2=',taskNodes);
-
-
-
+	}).reverse();
 	return (
 		<div style={style}>
 			{taskNodes}

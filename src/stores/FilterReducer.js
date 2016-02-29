@@ -9,9 +9,7 @@ const filter = (state=def, action) => {
 		case 'SET_FILTER':
 			res = action.payload;
 			ls.setFilter(res);
-			console.log(res);
 			return res;
-		
 		default:
 			return state;
 	}
