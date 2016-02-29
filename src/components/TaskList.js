@@ -10,7 +10,6 @@ const style = {
 };
 
 const TaskListComponent = ({todos, filter}) => {
-
 	var tasks = todos;
 	if (filter !== 'ALL'){
 		var flag = filter === 'COMPLETED';
@@ -37,12 +36,7 @@ const TaskListComponent = ({todos, filter}) => {
 	);
 }
 
-const mapState = (state) => {
-	return {
-		todos: state.todos,
-		filter: state.filter
-	};
-}
+const mapState = ({todos, filter}) => ({todos, filter});
 
 var TaskList = connect(mapState, null)(TaskListComponent);
 

@@ -9,10 +9,10 @@ const style = {
 
 const HeaderText = () => {
 	return (
-			<h1 style={style}>
-				<ChangingButton/>
-				todos
-			</h1>
+		<h1 style={style}>
+			<ChangingButton/>
+			todos
+		</h1>
 	);
 }
 

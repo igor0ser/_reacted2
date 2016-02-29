@@ -1,8 +1,8 @@
 import React from 'react';
 import Paper from 'material-ui/lib/paper';
-import HeaderForm from 'components/HeaderForm.js';
-import HeaderText from 'components/HeaderText.js';
-import FilterContainer from 'components/FilterContainer.js';
+import HeaderForm from 'components/HeaderForm';
+import HeaderText from 'components/HeaderText';
+import FilterContainer from 'components/FilterContainer';
 
 const style = {
 	height: 200,

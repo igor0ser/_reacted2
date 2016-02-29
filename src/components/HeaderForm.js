@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import TextField from 'material-ui/lib/text-field';
 import addTask from 'actions/addTask';
 
-const HeaderFormComponent = (props) => {
-
-	const handler = (e) => {
+const HeaderFormComponent = ({onTaskSubmit}) => {
+	const submitHandler = (e) => {
 		if (e.target.value !== ''){
-			props.onTaskSubmit(e.target.value);
+			onTaskSubmit(e.target.value);
 			e.target.value = '';
 		}
 	}
@@ -15,19 +14,16 @@ const HeaderFormComponent = (props) => {
 	return (
 			<TextField
 				floatingLabelText="Enter task"
-				onEnterKeyDown = {handler}
+				onEnterKeyDown = {submitHandler}
 			>
 			</TextField>
 	);
 }
 
-const mapDispatch = (dispatch) => {
-	return {
-		onTaskSubmit: function(text){
-			dispatch(addTask(text));
-		}
-	};
-}
+const mapDispatch = (dispatch) => ({
+	onTaskSubmit: (text) => dispatch(addTask(text))
+});
+
 
 var HeaderForm = connect(null, mapDispatch)(HeaderFormComponent);
 

@@ -2,27 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Snackbar from 'material-ui/lib/snackbar';
 
-const ChangeMessageComponent = ({stateTodos}) => {
-	var activeTasks = stateTodos.filter((item) => {
-		return !item.completed;
-	})
-	var flag = activeTasks.length > 0;
-	var message = activeTasks.length + ' tasks left';
+const ChangeMessageComponent = ({todos}) => {
+	var tasksLeft = todos.filter((item) => !item.completed).length;
 	return (
 		<Snackbar
-			open={flag}
-			message={message}
-			autoHideDuration={1000}
+			open={tasksLeft > 0}
+			message={tasksLeft + ' tasks left'}
 			onRequestClose={() => {}}
 		/>
 	);
 }
 
-const mapState = (state) => {
-	return {
-		stateTodos: state.todos
-	};
-}
+const mapState = (state) => ({todos: state.todos});
 
 var ChangeMessage = connect(mapState, null)(ChangeMessageComponent);
 

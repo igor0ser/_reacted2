@@ -1,18 +1,17 @@
 import React from 'react';
-import FilterButton from 'components/FilterButton.js';
+import FilterButton from 'components/FilterButton';
 
 const FilterContainer = () => {
-
 	return (
 		<div>
 			<FilterButton
-					filter="ALL"
+				filter="ALL"
 			/>
 			<FilterButton
-					filter="ACTIVE"
+				filter="ACTIVE"
 			/>
 			<FilterButton
-					filter="COMPLETED"
+				filter="COMPLETED"
 			/>
 		</div>
 	);
