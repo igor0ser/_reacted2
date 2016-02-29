@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Paper from 'material-ui/lib/paper';
 import FlatButton from 'material-ui/lib/flat-button';
-import store from 'stores/Store';
 import delTask from 'actions/delTask.js';
 import toggleTask from 'actions/toggleTask.js';
 import editTask from 'actions/editTask.js';
@@ -22,14 +22,14 @@ const pStyle = {
 
 
 
-const Task = (props) => {
+const TaskComponent = (props) => {
 	var done = props.completed;
 
 	const delHandler = () => {
-		store.dispatch(delTask(props.id));
+		props.onDelete(props.id);
 	}
 	const toggleHandler = () => {
-		store.dispatch(toggleTask(props.id));
+		props.onToggle(props.id);
 	}
 	const dbClickHandler = (e) => {
 		if (!done){
@@ -38,7 +38,7 @@ const Task = (props) => {
 	}
 	const enterHandler = (e) => {
 		if (e.key === 'Enter') {
-			store.dispatch(editTask(e.target.innerHTML, props.id));
+			props.onEdit(e.target.innerHTML, props.id);
 			e.target.setAttribute('contentEditable', false);
 		}
 	}
@@ -49,7 +49,7 @@ const Task = (props) => {
 	}
 
 
-	var text = (done) ? 'Undone' : 'Done';
+	var text = (done) ? 'Not done' : 'Done';
 	var depth = (done) ? 2 : 4;
 
 	return (
@@ -79,5 +79,27 @@ const Task = (props) => {
 		</Paper>
 	);
 }
+
+const mapDispatch = (dispatch) => {
+	return {
+		onToggle: function(id){
+			dispatch(toggleTask(id));
+		},
+		onDelete: function(id){
+			dispatch(delTask(id));
+		},
+		onEdit: function(text, id){
+			dispatch(editTask(text, id));
+		}
+	};
+}
+
+const mapState = (state) => {
+	return {
+		stateTodos: state.todos
+	};
+}
+
+var Task = connect(mapState, mapDispatch)(TaskComponent);
 
 export default Task;

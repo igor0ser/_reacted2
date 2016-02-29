@@ -6,10 +6,8 @@ import HeaderContainer from 'components/HeaderContainer.js'
 import TaskList from 'components/TaskList.js'
 import ChangeMessage from 'components/ChangeMessage.js'
 import store from 'stores/Store';
+import {Provider} from 'react-redux';
 
-
-
-/*import store from 'stores/CommentStore';*/
 
 
 const Container = () => {
@@ -25,7 +23,10 @@ const Container = () => {
 
 
 const render = () => {
-	ReactDOM.render( <Container></Container>,
+	ReactDOM.render(
+		<Provider store={store}>
+			<Container />
+		</Provider>,
 		document.getElementById('app')
 	);
 }

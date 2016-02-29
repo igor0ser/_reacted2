@@ -1,7 +1,6 @@
 import React from 'react';
-import Task from 'components/Task.js';
-import store from 'stores/Store';
-
+import { connect } from 'react-redux';
+import Task from 'components/Task';
 
 const style = {
 	display: 'flex',
@@ -10,18 +9,15 @@ const style = {
 	justifyContent: 'center'
 };
 
+const TaskListComponent = ({todos, filter}) => {
 
-const TaskList = () => {
-
-	var tasks = store.getState().todos;
-	
-	if (store.getState().filter !== 'ALL'){
-		var flag = store.getState().filter === 'COMPLETED';
+	var tasks = todos;
+	if (filter !== 'ALL'){
+		var flag = filter === 'COMPLETED';
 		tasks = tasks.filter(item => {
 			return item.completed === flag;
 		});
 	}
-
 	var taskNodes = tasks.map(item => {
 		return (
 			<Task
@@ -33,11 +29,21 @@ const TaskList = () => {
 			</Task>
 		);
 	}).reverse();
+
 	return (
 		<div style={style}>
 			{taskNodes}
 		</div>
 	);
 }
+
+const mapState = (state) => {
+	return {
+		todos: state.todos,
+		filter: state.filter
+	};
+}
+
+var TaskList = connect(mapState, null)(TaskListComponent);
 
 export default TaskList;

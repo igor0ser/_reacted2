@@ -1,16 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import IconButton from 'material-ui/lib/icon-button';
 import ActionCached from 'material-ui/lib/svg-icons/action/cached';
-import store from 'stores/Store';
 import Colors from 'material-ui/lib/styles/colors';
-import toggleAllTasks from 'actions/toggleAllTasks.js';
+import toggleAllTasks from 'actions/toggleAllTasks';
 
-const ChangingButton = () => {
+const ChangingButtonComponent = (props) => {
 
-	var flag = !store.getState().todos.every(function(item){
+	var flag = !props.stateTodos.every(function(item){
 		return item.completed;
 	});
-	var disabled = store.getState().todos.length === 0;
+	var disabled = props.stateTodos.length === 0;
 
 	var tooltip = disabled ? '' : flag ? 'Make all done' : 'Make all not done';
 	var color = disabled ?  Colors.grey500 : flag ? Colors.cyan500 : Colors.pink500;
@@ -21,7 +21,7 @@ const ChangingButton = () => {
 			touch={true}
 			tooltipPosition='top-center'
 			disabled={disabled}
-			onClick={() => {store.dispatch(toggleAllTasks(flag))}}
+			onClick={() => {props.onToggleTasks(flag)}}
 		>
 			<ActionCached
 				color={color}
@@ -29,6 +29,23 @@ const ChangingButton = () => {
 		</IconButton>
 	);
 }
+
+const mapDispatch = (dispatch) => {
+	return {
+		onToggleTasks: function(flag){
+			dispatch(toggleAllTasks(flag));
+		}
+	};
+}
+
+const mapState = (state) => {
+	return {
+		stateTodos: state.todos
+	};
+}
+
+var ChangingButton = connect(mapState, mapDispatch)(ChangingButtonComponent);
+
 
 export default ChangingButton;
 
