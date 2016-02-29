@@ -7,13 +7,12 @@ const style = {
 	marginLeft: -48
 }
 
-const HeaderText = () => {
-	return (
-		<h1 style={style}>
-			<ChangingButton/>
-			todos
-		</h1>
-	);
-}
+const HeaderText = () => (
+	<h1 style={style}>
+		<ChangingButton/>
+		todos
+	</h1>
+);
+
 
 export default HeaderText;

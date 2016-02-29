@@ -33,7 +33,7 @@ const mapDispatch = (dispatch) => ({
 	onToggleTasks: (flag) => dispatch(toggleAllTasks(flag))
 });
 
-const mapState = (state) => ({todos: state.todos});
+const mapState = ({todos}) => ({todos});
 
 
 var ChangingButton = connect(mapState, mapDispatch)(ChangingButtonComponent);

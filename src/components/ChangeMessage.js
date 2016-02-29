@@ -13,7 +13,7 @@ const ChangeMessageComponent = ({todos}) => {
 	);
 }
 
-const mapState = (state) => ({todos: state.todos});
+const mapState = ({todos}) => ({todos});
 
 var ChangeMessage = connect(mapState, null)(ChangeMessageComponent);
 

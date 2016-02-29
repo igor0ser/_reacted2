@@ -5,25 +5,21 @@ import setFilter from 'actions/setFilter';
 
 const FilterButtonComponent = ({
 	stateFilter, filter, onFilterClick
-}) => {
-	return (
+}) => (
 		<FlatButton
 			label={filter}
 			secondary={stateFilter === filter}
 			onClick = {() => {onFilterClick(filter)}}
 		>
 		</FlatButton>
-	);
-}
+);
 
 const mapDispatch = (dispatch) => ({
 	onFilterClick: (filter) => dispatch(setFilter(filter))
 });
 
-const mapState = (state) => ({stateFilter: state.filter});
-
+const mapState = ({filter}) => ({stateFilter: filter});
 
 var FilterButton = connect(mapState, mapDispatch)(FilterButtonComponent);
-
 
 export default FilterButton;

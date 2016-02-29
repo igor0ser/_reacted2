@@ -12,15 +12,12 @@ const style = {
 	textAlign: 'center'
 };
 
-const HeaderContainer = () => {
-	return (
-		<Paper style={style} zDepth={4}>
-			<HeaderText />
-			<HeaderForm />
-			<FilterContainer />
-		</Paper>
-
-	);
-}
+const HeaderContainer = () => (
+	<Paper style={style} zDepth={4}>
+		<HeaderText />
+		<HeaderForm />
+		<FilterContainer />
+	</Paper>
+);
 
 export default HeaderContainer;
