@@ -10,16 +10,17 @@ const ChangingButton = () => {
 	var flag = !store.getState().todos.every(function(item){
 		return item.completed;
 	});
+	var disabled = store.getState().todos.length === 0;
 
-	var tooltip = flag ? 'Make all done' : 'Make all not done';
-	var color = flag ? Colors.cyan500 : Colors.pink500;
+	var tooltip = disabled ? '' : flag ? 'Make all done' : 'Make all not done';
+	var color = disabled ?  Colors.grey500 : flag ? Colors.cyan500 : Colors.pink500;
 
 	return (
 		<IconButton
 			tooltip={tooltip}
 			touch={true}
 			tooltipPosition='top-center'
-			disabled={store.getState().todos.length <= 0}
+			disabled={disabled}
 			onClick={() => {store.dispatch(toggleAllTasks(flag))}}
 		>
 			<ActionCached
