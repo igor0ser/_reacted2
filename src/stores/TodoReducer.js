@@ -11,7 +11,7 @@ const todos = (state=def, action) => {
 				text: action.payload.text,
 				id: action.payload.id,
 				completed: false
-			}
+			};
 			res = state.concat(newTask);
 			ls.setTodos(res);
 			return res;

@@ -13,21 +13,17 @@ const TaskListComponent = ({todos, filter}) => {
 	var tasks = todos;
 	if (filter !== 'ALL'){
 		var flag = filter === 'COMPLETED';
-		tasks = tasks.filter(item => {
-			return item.completed === flag;
-		});
+		tasks = tasks.filter(item => item.completed === flag);
 	}
-	var taskNodes = tasks.map(item => {
-		return (
-			<Task
-				key={item.id}
-				id={item.id}
-				completed={item.completed}
-			>
-				{item.text}
-			</Task>
-		);
-	}).reverse();
+	var taskNodes = tasks.map(item => (
+		<Task
+			key={item.id}
+			id={item.id}
+			completed={item.completed}
+		>
+			{item.text}
+		</Task>
+	)).reverse();
 
 	return (
 		<div style={style}>
