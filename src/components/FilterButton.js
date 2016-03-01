@@ -14,8 +14,8 @@ const FilterButtonComponent = ({
 		</FlatButton>
 );
 
-const mapDispatch = (dispatch) => ({
-	onFilterClick: (filter) => dispatch(setFilter(filter))
+const mapDispatch = dispatch => ({
+	onFilterClick: filter => dispatch(setFilter(filter))
 });
 
 const mapState = ({filter}) => ({stateFilter: filter});

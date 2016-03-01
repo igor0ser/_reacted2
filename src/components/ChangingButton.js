@@ -7,9 +7,7 @@ import toggleAllTasks from 'actions/toggleAllTasks';
 
 const ChangingButtonComponent = ({todos, onToggleTasks}) => {
 
-	var flag = !todos.every(function(item){
-		return item.completed;
-	});
+	var flag = !todos.every(item => item.completed);
 	var disabled = todos.length === 0;
 
 	var tooltip = disabled ? '' : flag ? 'Make all done' : 'Make all not done';
@@ -29,8 +27,8 @@ const ChangingButtonComponent = ({todos, onToggleTasks}) => {
 	);
 }
 
-const mapDispatch = (dispatch) => ({
-	onToggleTasks: (flag) => dispatch(toggleAllTasks(flag))
+const mapDispatch = dispatch => ({
+	onToggleTasks: flag => dispatch(toggleAllTasks(flag))
 });
 
 const mapState = ({todos}) => ({todos});

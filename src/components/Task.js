@@ -71,9 +71,9 @@ const TaskComponent = ({
 	);
 }
 
-const mapDispatch = (dispatch) => ({
-	onToggle: (id) => dispatch(toggleTask(id)),
-	onDelete: (id) => dispatch(delTask(id)),
+const mapDispatch = dispatch => ({
+	onToggle: id => dispatch(toggleTask(id)),
+	onDelete: id => dispatch(delTask(id)),
 	onEdit: (text, id) => dispatch(editTask(text, id))
 });
 

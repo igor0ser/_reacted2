@@ -8,7 +8,7 @@ var ls = {
 		var model = JSON.parse(json);
 		return (json) ? JSON.parse(json) : [];
 	},
-	setTodos: (model) => {
+	setTodos: model => {
 		var json = JSON.stringify(model);
 		localStorage.setItem(KEY_TODOS, json);
 	},
@@ -17,7 +17,7 @@ var ls = {
 		if (!json) return 'ALL';
 		return (json) ? json : 'ALL';
 	},
-	setFilter: (model) => {
+	setFilter: model => {
 		localStorage.setItem(KEY_FILTER, model);
 	},
 	clear: () => {

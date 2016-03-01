@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Snackbar from 'material-ui/lib/snackbar';
 
 const ChangeMessageComponent = ({todos}) => {
-	var tasksLeft = todos.filter((item) => !item.completed).length;
+	var tasksLeft = todos.filter(item => !item.completed).length;
 	return (
 		<Snackbar
 			open={tasksLeft > 0}

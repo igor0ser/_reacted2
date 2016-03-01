@@ -1,4 +1,4 @@
-const setFilter = (filter) => ({
+const setFilter = filter => ({
 	type: 'SET_FILTER',
 	payload: filter
 });

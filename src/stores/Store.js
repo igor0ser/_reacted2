@@ -3,8 +3,7 @@ import todos from 'stores/TodoReducer';
 import filter from 'stores/FilterReducer';
 
 var reducer = combineReducers({
-	todos: todos,
-	filter: filter
+	todos, filter
 	});
 
 var store = createStore(reducer);

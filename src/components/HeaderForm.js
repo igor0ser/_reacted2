@@ -20,8 +20,8 @@ const HeaderFormComponent = ({onTaskSubmit}) => {
 	);
 }
 
-const mapDispatch = (dispatch) => ({
-	onTaskSubmit: (text) => dispatch(addTask(text))
+const mapDispatch = dispatch => ({
+	onTaskSubmit: text => dispatch(addTask(text))
 });
 
 var HeaderForm = connect(null, mapDispatch)(HeaderFormComponent);

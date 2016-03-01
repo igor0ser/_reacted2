@@ -1,4 +1,4 @@
-const delTask = (id) => ({
+const delTask = id => ({
 	type: 'DEL_TASK',
 	payload: id
 });
