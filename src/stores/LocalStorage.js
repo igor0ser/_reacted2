@@ -5,7 +5,6 @@ var ls = {
 	getTodos: () => {
 		var json = localStorage.getItem(KEY_TODOS);
 		if (!json) return [];
-		var model = JSON.parse(json);
 		return (json) ? JSON.parse(json) : [];
 	},
 	setTodos: model => {

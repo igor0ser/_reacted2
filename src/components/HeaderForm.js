@@ -13,7 +13,7 @@ const HeaderFormComponent = ({onTaskSubmit}) => {
 
 	return (
 		<TextField
-			floatingLabelText="Enter task"
+			hintText="Enter task"
 			onEnterKeyDown = {submitHandler}
 		>
 		</TextField>
