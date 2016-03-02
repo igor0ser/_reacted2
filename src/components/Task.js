@@ -46,7 +46,6 @@ const TaskComponent = ({
 
 	return (
 		<Paper style={(completed ? Object.assign({backgroundColor: '#ddd'}, style) : style)}
-			className='task'
 			zDepth={depth}>
 			<p
 				style={(completed ? Object.assign({textDecoration: 'line-through'}, pStyle) : pStyle)}
@@ -54,7 +53,6 @@ const TaskComponent = ({
 				onKeyPress={enterHandler}
 				onBlur={blurHandler}
 				tabIndex = '-1'
-				className = 'task'
 			>
 				{children}
 			</p>
